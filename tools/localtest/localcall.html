@@ -1,0 +1,189 @@
+
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+
+jQuery( "#DataProcessing" ).submit(function( event ) {
+  
+  //disable the default form submission
+  event.preventDefault();
+ 
+  //grab all form data  
+  var formData = new FormData(jQuery(this)[0]);
+ 
+  jQuery.ajax({
+    url: 'localhost:10080/api/job',
+    type: 'POST',
+    data: formData,
+    async: false,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (returndata) {
+    alert(returndata);
+    }
+  });
+ 
+  return false;    
+
+
+});
+
+</script>
+
+<form id="DataProcessing" method="post" action="" enctype="multipart/form-data">
+           <div class="form-item-uname">
+             <label for="mgnlModelExecutionUUID">
+            <span>
+                Enter you ID
+                    <dfn title="required">*</dfn>
+            </span>
+        </label>
+              <input type="text" name="mgnlModelExecutionUUID" value="445eb762-20a8-4a21-b07e-9790930ee22b">
+              <label for="mgnlModelExecutionUUID">
+            <span>
+                Enter you a value for the field
+                    <dfn title="required">*</dfn>
+            </span>
+        </label>
+              <input type="text" name="field" value="">
+          </div>
+
+
+
+
+
+<fieldset>
+
+
+
+
+
+
+
+
+<div>
+        <label for="Email">
+            <span>
+                Email
+                    <dfn title="required">*</dfn>
+            </span>
+        </label>
+
+        <input required="required" type="text" name="Email" id="Email" value="" maxlength="50">
+
+
+</div><!-- end  -->
+
+
+
+
+<div>
+        <label for="App">
+            <span>
+            Application to Run
+            </span>
+        </label>
+
+    <fieldset>
+
+            <select id="App" name="App">
+                        <option value="Application 1" selected="selected">Application 1</option>
+                        <option value="Application 2">Application 2</option>
+                        <option value="Application 3">Application 3</option>
+            </select>
+    </fieldset>
+
+</div><!-- end  -->
+
+
+<div>
+        <label for="file">
+            file
+        </label>
+
+    <input type="file" name="file" id="file" value="">
+
+        <span>Please select the file you wish to process</span>
+</div><!-- end  -->
+
+
+
+
+
+
+<div>
+        <label for="Parameter1">
+            <span>
+                Parameter1
+                    <dfn title="required">*</dfn>
+            </span>
+        </label>
+
+        <input required="required" type="text" name="Parameter1" id="Parameter1" value="" maxlength="50">
+
+      <span>Please enter the parameter 1</span>
+
+</div><!-- end  -->
+
+
+
+
+
+<div>
+        <label for="Parameter2">
+            <span>
+                Parameter 2
+                    <dfn title="required">*</dfn>
+            </span>
+        </label>
+
+        <input required="required" type="text" name="Parameter2" id="Parameter2" value="" maxlength="50">
+
+      <span>Please enter the parameter 2</span>
+
+</div><!-- end  -->
+
+
+
+
+
+<div>
+        <label for="lemon">
+            <span>
+                lemon
+            </span>
+        </label>
+
+        <input type="text" name="lemon" id="lemon" value="" maxlength="50">
+
+      <span>a lemon</span>
+
+</div><!-- end  -->
+
+
+
+
+
+<div>
+        <label for="reqNumb">
+            <span>
+                number of request
+                    <dfn title="required">*</dfn>
+            </span>
+        </label>
+
+        <input required="required" type="text" name="reqNumb" id="reqNumb" value="" maxlength="50">
+
+
+</div><!-- end  -->
+<div class="button-wrapper">
+
+
+    <input type="submit" value="Submit this form">
+
+
+
+</div><!-- end navigation-button-wrapper -->
+
+</fieldset>
+        </form>

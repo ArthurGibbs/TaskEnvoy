@@ -1,13 +1,21 @@
 package taskenvoy.domain;
 
-public class Message {
+public class ResponseMessage {
     private String message;
+    
+    public ResponseMessage() {
+	}
+    
+    public ResponseMessage(String message) {
+		super();
+		this.message = message;
+	}
 
-    public String getMessage() {
+	public String getMessage() {
         return message;
     }
 
-    public Message setMessage(final String message) {
+    public ResponseMessage setMessage(final String message) {
         this.message = message;
         return this;
     }

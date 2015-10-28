@@ -1,0 +1,36 @@
+title: Say job 20151026 141250
+given:
+  - time: 2015-10-26T14:12:50.182Z
+wts:
+  - when: |
+       POST Tasks
+       Cookie: RestxSession-TaskEnvoy={"_expires":"2015-11-25T14:12:50.182Z","principal":"admin","sessionKey":"5181bf0f-4089-42e7-8858-4d9e1a44403b"}; RestxSessionSignature-TaskEnvoy=DlHJDXMatWakBPG1emszRsYVBCc=
+
+        {
+          "type": "object",
+          "properties": {
+            "parameter2_": {
+              "type": "string"
+            },
+            "parameter1_": {
+              "type": "string"
+            },
+            "numberOfRequest_": {
+              "type": "integer"
+            },
+            "value_": {
+              "type": "string"
+            },
+            "email_": {
+              "type": "string"
+            }
+          }
+        }
+    then: |
+        {
+          "email_" : null,
+          "parameter1_" : null,
+          "parameter2_" : null,
+          "value_" : null,
+          "numberOfRequest_" : 0
+        }

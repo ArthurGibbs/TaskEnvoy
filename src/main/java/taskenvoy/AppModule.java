@@ -6,11 +6,17 @@ import restx.factory.Provides;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
+import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
+
 import restx.security.*;
 import restx.factory.Module;
 import restx.factory.Provides;
+
 import javax.inject.Named;
+
+import com.google.common.base.Predicates;
+import com.google.common.collect.ImmutableList;
 
 import java.nio.file.Paths;
 
@@ -71,4 +77,17 @@ public class AppModule {
                 credentialsStrategy, defaultAdminPasswordHash),
                 securitySettings);
     }
+    
+    
+    @Provides
+    public CORSAuthorizer allowCORS() {
+        return StdCORSAuthorizer.builder()
+                .setOriginMatcher(Predicates.<CharSequence>alwaysTrue())
+                .setPathMatcher(Predicates.<CharSequence>alwaysTrue())
+                .setAllowedMethods(ImmutableList.of("GET", "POST", "PUT", "DELETE", "HEAD"))
+                .setAllowedHeaders(ImmutableList.of("Origin", "X-Requested-With", "Content-Type", "Accept"))
+                .setAllowCredentials(Optional.of(Boolean.TRUE))
+                .build();
+    }
+
 }
